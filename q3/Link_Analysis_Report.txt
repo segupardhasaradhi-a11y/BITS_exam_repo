@@ -1,0 +1,61 @@
+Command: ls -li original.txt hardlink.txt symlink.txt
+Output:
+1310805 -rw-rw-rw- 2 codespace codespace 21 Jul  3 16:14 q3/hardlink.txt
+1310805 -rw-rw-rw- 2 codespace codespace 21 Jul  3 16:14 q3/original.txt
+1310806 lrwxrwxrwx 1 codespace codespace 12 Jul  3 16:14 q3/symlink.txt -> original.txt
+
+Command: stat original.txt hardlink.txt symlink.txt
+Output:
+  File: q3/original.txt
+  Size: 21        	Blocks: 8          IO Block: 4096   regular file
+Device: 7,4	Inode: 1310805     Links: 2
+Access: (0666/-rw-rw-rw-)  Uid: ( 1000/codespace)   Gid: ( 1000/codespace)
+Access: 2026-07-03 16:14:35.024728838 +0000
+Modify: 2026-07-03 16:14:35.024728838 +0000
+Change: 2026-07-03 16:14:35.027728838 +0000
+ Birth: 2026-07-03 16:14:35.024728838 +0000
+  File: q3/hardlink.txt
+  Size: 21        	Blocks: 8          IO Block: 4096   regular file
+Device: 7,4	Inode: 1310805     Links: 2
+Access: (0666/-rw-rw-rw-)  Uid: ( 1000/codespace)   Gid: ( 1000/codespace)
+Access: 2026-07-03 16:14:35.024728838 +0000
+Modify: 2026-07-03 16:14:35.024728838 +0000
+Change: 2026-07-03 16:14:35.027728838 +0000
+ Birth: 2026-07-03 16:14:35.024728838 +0000
+  File: q3/symlink.txt -> original.txt
+  Size: 12        	Blocks: 0          IO Block: 4096   symbolic link
+Device: 7,4	Inode: 1310806     Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: ( 1000/codespace)   Gid: ( 1000/codespace)
+Access: 2026-07-03 16:14:35.035728839 +0000
+Modify: 2026-07-03 16:14:35.030728838 +0000
+Change: 2026-07-03 16:14:35.030728838 +0000
+ Birth: 2026-07-03 16:14:35.030728838 +0000
+
+Command: cat original.txt
+Output:
+Linux link test file
+
+Command: cat hardlink.txt
+Output:
+Linux link test file
+
+Command: cat symlink.txt
+Output:
+Linux link test file
+
+Command: rm original.txt
+Output:
+The original file was removed.
+
+Command: ls -li
+Output:
+1310805 -rw-rw-rw- 2 codespace codespace 21 Jul  3 16:14 q3/hardlink.txt
+1310806 lrwxrwxrwx 1 codespace codespace 12 Jul  3 16:14 q3/symlink.txt -> original.txt
+
+Command: cat hardlink.txt
+Output:
+Linux link test file
+
+Command: cat symlink.txt
+Output:
+Linux link test file

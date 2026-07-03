@@ -1,0 +1,29 @@
+Command: whoami
+Output:
+codespace
+
+Command: groups
+Output:
+codespace pipx python oryx golang docker sdkman rvm php conda nvs nvm hugo ssh
+
+Command: echo "$SHELL"
+Output:
+/bin/bash
+
+Command: pwd
+Output:
+/workspaces/BITS_exam_repo
+
+Command: ls -ls
+Output:
+total 24
+4 -rw-rw-rw-  1 codespace root        16 Jul  3 15:14 README.md
+4 drwxrwxrwx+ 2 codespace codespace 4096 Jul  3 16:11 q1
+4 drwxrwxrwx+ 3 codespace codespace 4096 Jul  3 16:11 q2
+4 drwxrwxrwx+ 2 codespace codespace 4096 Jul  3 16:11 q3
+4 drwxrwxrwx+ 2 codespace codespace 4096 Jul  3 16:12 q4
+4 drwxrwxrwx+ 2 codespace codespace 4096 Jul  3 16:11 q5
+
+Command: curl -s --max-time 10 https://youtube.com > /dev/null && echo "Network: youtube.com reachable"
+Output:
+Network: youtube.com reachable
